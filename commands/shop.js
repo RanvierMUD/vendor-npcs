@@ -2,7 +2,7 @@
 
 const sprintf = require('sprintf-js').sprintf;
 const Ranvier = require('ranvier');
-const ItemUtil = require('../../ranvier-lib/lib/ItemUtil');
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
 const { Broadcast: B, CommandManager, ItemType } = Ranvier;
 const { CommandParser: Parser } = Ranvier.CommandParser;
 const say = B.sayAt;
