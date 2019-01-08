@@ -1,11 +1,10 @@
 'use strict';
 
 const sprintf = require('sprintf-js').sprintf;
-const Ranvier = require('ranvier');
-const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
-const { Broadcast: B, CommandManager, ItemType } = Ranvier;
-const { CommandParser: Parser } = Ranvier.CommandParser;
+const { Broadcast: B, CommandManager, ItemType } = require('ranvier');
 const say = B.sayAt;
+const ItemUtil = require('../../bundle-example-lib/lib/ItemUtil');
+const Parser = require('../../bundle-example-lib/lib/ArgParser');
 
 
 const subcommands = new CommandManager();
