@@ -1,5 +1,4 @@
-Basic bundle for having vendor NPCs. Adds a `shop` command players can use to to
-buy and sell items.
+Basic bundle for having vendor NPCs. Adds a `shop` command players can use to to buy and sell items.
 
 ## Creating a vendor
 
@@ -8,8 +7,8 @@ buy and sell items.
   name: "Wally the Wonderful"
   description: >-
    Wally's Shop has the best wares in town! Armor, weapons and potions, you name and we ... might have it!
-  behaviors:
-    # use the 'vendor' behavior to make an NPC a vendor
+  metadata:
+    # use the 'vendor' metadata to make an NPC a vendor
     vendor:
       // The 'items' config specifies the items they have for sale
       items:
@@ -35,17 +34,16 @@ buy and sell items.
           currency: gold
 ```
 
-Vendors have an infinite supply, each purchased item will be generated
-on-demand.
+Vendors have an infinite supply, each purchased item will be generated on-demand.
 
 ## Making an item sellable
 
-Items can only be sold to a vendor if they have the `sellable` behavior
+Items can only be sold to a vendor if they have the `sellable` metadata
 
 ```yaml
 - id: "scraps"
   name: "Scraps"
-  behaviors:
+  metadata:
     sellable:
       value: 5
       currency: gold

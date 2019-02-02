@@ -11,7 +11,7 @@ const subcommands = new CommandManager();
 subcommands.add({
   name: 'list',
   command: state => (vendor, args, player) => {
-    const vendorConfig = vendor.getBehavior('vendor');
+    const vendorConfig = vendor.getMeta('vendor');
     const items = getVendorItems(state, vendorConfig.items);
     const tell = genTell(state, vendor, player);
 
@@ -85,7 +85,7 @@ subcommands.add({
 subcommands.add({
   name: 'buy',
   command: state => (vendor, args, player) => {
-    const vendorConfig = vendor.getBehavior('vendor');
+    const vendorConfig = vendor.getMeta('vendor');
     const tell = genTell(state, vendor, player);
     if (!args || !args.length) {
       return tell("Well, what do you want to buy?");
@@ -134,7 +134,7 @@ subcommands.add({
       return say(player, "You don't have that.");
     }
 
-    const sellable = item.getBehavior('sellable');
+    const sellable = item.getMeta('sellable');
     if (!sellable) {
       return say(player, "You can't sell that item.");
     }
@@ -173,7 +173,7 @@ subcommands.add({
       return say(player, "You don't have that.");
     }
 
-    const sellable = targetItem.getBehavior('sellable');
+    const sellable = targetItem.getMeta('sellable');
     if (!sellable) {
       return say(player, "You can't sell that item.");
     }
@@ -189,7 +189,7 @@ module.exports = {
     // if list/buy aliases were used then prepend that to the args
     args = (!['vendor', 'shop'].includes(arg0) ? arg0 + ' ' : '') + args;
 
-    const vendor = Array.from(player.room.npcs).find(npc => npc.hasBehavior('vendor'));
+    const vendor = Array.from(player.room.npcs).find(npc => npc.getMeta('vendor'));
 
     if (!vendor) {
       return B.sayAt(player, "You aren't in a shop.");
