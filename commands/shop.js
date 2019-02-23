@@ -165,7 +165,7 @@ subcommands.add({
       return tell("What did you want me to appraise?");
     }
 
-    const [ itemArg, confirm ] = args.split(' ');
+    const [ itemArg ] = args.split(' ');
 
     const targetItem = Parser.parseDot(itemArg, player.inventory);
 
